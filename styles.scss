@@ -1,0 +1,82 @@
+@import "normalize";
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,500);
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+$verde: #8DC63F;
+$verde_bg: lighten(desaturate($verde, 20%), 10%);
+
+body {
+  background-color: $verde_bg;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+h1, strong {
+  font-weight: 500;
+}
+table {
+  max-width: 960px;
+  text-align: center;
+  margin: 0 auto 2em auto;
+  border: 1px solid #000;
+  border-width: 0 1px 1px 0;
+}
+td, th {
+  border: 1px solid #000;
+  border-width: 1px 0 0 1px;
+}
+th {
+  background-color: darken($verde_bg, 15%);
+  padding: 1em;
+  font-weight: 500;
+}
+input {
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+  padding: 0.5em 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2em;
+}
+.points {
+  border: 1px solid darken($verde_bg, 15%);
+  border-width: 1px 0;
+  padding: 1em 0 0 0;
+  margin: 1em 0;
+  list-style-type: none;
+  text-align: left;
+  width: 90%;
+  max-width: 640px;
+  margin: 0 auto;
+  li {
+    margin-bottom: 1em;
+  }
+}
+a {
+  color: #000;
+}
+.social a {
+  text-decoration: none;
+  font-size: 32px;
+  margin: 0 0.2em;
+  -webkit-transition: color .2s;
+  -moz-transition: color .2s;
+  transition: color .2s;
+  &:hover {
+    color: #444;
+  }
+}
