@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Android Screen Density Calculator</title>
+  <link rel="stylesheet" href="http://i.icomoon.io/public/temp/b0e13c1890/calculadora/style.css">
+  <link rel="stylesheet" href="calculator.css">
+  <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script>
+    function decimalPlaces(num) {
+      var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+      if (!match) { return 0; }
+      return Math.max(
+           0,
+           // Number of digits right of decimal point.
+           (match[1] ? match[1].length : 0)
+           // Adjust for scientific notation.
+           - (match[2] ? +match[2] : 0));
+    }
+    function reload () {
+      var base = $(this).val() / $(this).attr('data-ref');
+      var actual = $(this).attr('id');
+      $('input').each(function(){
+        if($(this).attr('id')!=actual) {
+          var valor = base * $(this).attr('data-ref');
+          if(decimalPlaces(valor)>0) {valor = valor.toFixed(2)}
+          $(this).val(valor);
+        }
+      })
+    }
+    $(document).ready(function(){
+      $('input').on('change', reload);
+      $('input').on('keyup', reload);
+    });
+  </script>
+</head>
+<body>
+<h1>Android Screen Density Calculator</h1>
+<table cellpadding="0" cellspacing="0">
+  <thead>
+    <tr>
+      <th>MDPI (1&times;)</th>
+      <th>HDPI (1.5&times;)</th>
+      <th>XHDPI (2&times;)</th>
+      <th>XXHDPI (3&times;)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="number" id="mdpi" data-ref="1" maxlength="5"></td>
+      <td><input type="number" id="hdpi" data-ref="1.5" maxlength="5"></td>
+      <td><input type="number" id="xhdpi" data-ref="2" maxlength="5"></td>
+      <td><input type="number" id="xxhdpi" data-ref="3" maxlength="5"></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <ul class="points">
+    <li><strong>How:</strong> Just change the number on any of the inputs to reflect the value.</li>
+    <li><strong>Why:</strong> I often need to calculate different measures to make assets for Android apps and I always end doing the math myself.</li>
+    <li><strong>Inspiration:</strong> I used <a href="http://www.skinkers.com/2011/04/08/android-density-pixel-dp-pixel-px-calculator/">Skinkers calculator</a> but it was outdated. The teehan+lax <a href="http://www.teehanlax.com/tools/density/">Pixel Density Converter</a> is a nice tool but it doesn't cover the numbers I need.</li>
+  </ul>
+</p>
+<p>by jiserra</p>
+<p class="social">
+  <a href="http://github.com/jiserra" class="icon-github"><span class="visuallyhidden">Github</span></a>
+  <a href="http://twitter.com/jiserra" class="icon-twitter"><span class="visuallyhidden">Twitter</span></a>
+</p>
+</body>
+</html>
