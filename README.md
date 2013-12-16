@@ -3,7 +3,7 @@ Android Screen Density Calculator
 
 Simple webapp to calculate the different measures to make assets on Android.
 
-**Where:** You can [use it here](http://jiserra.github.io/android-screen-density-calculator/calculator.html).
+**Where:** You can [use it here](http://jiserra.github.io/android-screen-density-calculator/calculator.html) or you can download the repo and use it offline!
 
 **How:** Just change the number on any of the inputs to reflect the value.
 
